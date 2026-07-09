@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C Pattern Programming Notes</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    margin:20px;
+    line-height:1.6;
+}
+
+h1{
+    text-align:center;
+    color:#0b5394;
+}
+
+.pattern{
+    background:white;
+    padding:20px;
+    margin:20px 0;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h2{
+    color:#d35400;
+}
+
+pre{
+    background:#272822;
+    color:#f8f8f2;
+    padding:15px;
+    border-radius:8px;
+    overflow:auto;
+}
+
+table{
+    border-collapse:collapse;
+    width:300px;
+}
+
+table,th,td{
+    border:1px solid black;
+}
+
+th,td{
+    padding:8px;
+    text-align:center;
+}
+
+.logic{
+    background:#eaf7ea;
+    padding:10px;
+    border-left:5px solid green;
+    margin:10px 0;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>C Pattern Programming Notes</h1>
+
+<!-- Pattern 1 -->
+
+<div class="pattern">
+
+<h2>1. Square Pattern</h2>
+
+<h3>Output</h3>
+
+<pre>
+*****
+*****
+*****
+*****
+*****
+</pre>
+
+<div class="logic">
+<b>Logic</b>
+
+<ul>
+<li>Rows = n</li>
+<li>Columns = n</li>
+<li>Print '*' every time</li>
+</ul>
+</div>
+
+<h3>Formula</h3>
+
+<pre>
+Rows = n
+Stars = n
+</pre>
+
+<h3>Table</h3>
+
+<table>
+
+<tr>
+<th>Row</th>
+<th>Stars</th>
+</tr>
+
+<tr><td>1</td><td>5</td></tr>
+<tr><td>2</td><td>5</td></tr>
+<tr><td>3</td><td>5</td></tr>
+<tr><td>4</td><td>5</td></tr>
+<tr><td>5</td><td>5</td></tr>
+
+</table>
+
+<h3>C Code</h3>
+
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+
+    for(int i=1;i&lt;=n;i++)
+    {
+        for(int j=1;j&lt;=n;j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+</pre>
+
+</div>
+
+<!-- Pattern 2 -->
+
+<div class="pattern">
+
+<h2>2. Left Triangle</h2>
+
+<h3>Output</h3>
+
+<pre>
+*
+**
+***
+****
+*****
+</pre>
+
+<div class="logic">
+
+<b>Logic</b>
+
+<p>Stars equal row number.</p>
+
+</div>
+
+<h3>Formula</h3>
+
+<pre>
+Stars = i
+</pre>
+
+<table>
+
+<tr>
+<th>Row</th>
+<th>Stars</th>
+</tr>
+
+<tr><td>1</td><td>1</td></tr>
+<tr><td>2</td><td>2</td></tr>
+<tr><td>3</td><td>3</td></tr>
+<tr><td>4</td><td>4</td></tr>
+<tr><td>5</td><td>5</td></tr>
+
+</table>
+
+<h3>C Code</h3>
+
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+
+    for(int i=1;i&lt;=n;i++)
+    {
+        for(int j=1;j&lt;=i;j++)
+        {
+            printf("*");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+</pre>
+
+</div>
+
+<!-- Pattern 3 -->
+
+<div class="pattern">
+
+<h2>3. Inverted Triangle</h2>
+
+<h3>Output</h3>
+
+<pre>
+*****
+****
+***
+**
+*
+</pre>
+
+<div class="logic">
+
+<b>Logic</b>
+
+<p>Stars decrease every row.</p>
+
+</div>
+
+<h3>Formula</h3>
+
+<pre>
+Stars = n-i+1
+</pre>
+
+<table>
+
+<tr>
+<th>Row</th>
+<th>Stars</th>
+</tr>
+
+<tr><td>1</td><td>5</td></tr>
+<tr><td>2</td><td>4</td></tr>
+<tr><td>3</td><td>3</td></tr>
+<tr><td>4</td><td>2</td></tr>
+<tr><td>5</td><td>1</td></tr>
+
+</table>
+
+<h3>C Code</h3>
+
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+
+    for(int i=1;i&lt;=n;i++)
+    {
+        for(int j=1;j&lt;=n-i+1;j++)
+        {
+            printf("*");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+</pre>
+
+</div>
+
+<!-- Pattern 4 -->
+
+<div class="pattern">
+
+<h2>4. Right Triangle</h2>
+
+<h3>Output</h3>
+
+<pre>
+    *
+   **
+  ***
+ ****
+*****
+</pre>
+
+<div class="logic">
+
+<b>Logic</b>
+
+<ul>
+
+<li>Spaces = n-i</li>
+
+<li>Stars = i</li>
+
+</ul>
+
+</div>
+
+<table>
+
+<tr>
+
+<th>Row</th>
+
+<th>Spaces</th>
+
+<th>Stars</th>
+
+</tr>
+
+<tr><td>1</td><td>4</td><td>1</td></tr>
+<tr><td>2</td><td>3</td><td>2</td></tr>
+<tr><td>3</td><td>2</td><td>3</td></tr>
+<tr><td>4</td><td>1</td><td>4</td></tr>
+<tr><td>5</td><td>0</td><td>5</td></tr>
+
+</table>
+
+<h3>C Code</h3>
+
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+
+    for(int i=1;i&lt;=n;i++)
+    {
+
+        for(int j=1;j&lt;=n-i;j++)
+        {
+            printf(" ");
+        }
+
+        for(int j=1;j&lt;=i;j++)
+        {
+            printf("*");
+        }
+
+        printf("\n");
+
+    }
+
+    return 0;
+}
+</pre>
+
+</div>
+
+<!-- Pattern 5 -->
+
+<div class="pattern">
+
+<h2>5. Inverted Right Triangle</h2>
+
+<h3>Output</h3>
+
+<pre>
+*****
+ ****
+  ***
+   **
+    *
+</pre>
+
+<div class="logic">
+
+<b>Logic</b>
+
+<ul>
+
+<li>Spaces = i-1</li>
+
+<li>Stars = n-i+1</li>
+
+</ul>
+
+</div>
+
+<table>
+
+<tr>
+
+<th>Row</th>
+
+<th>Spaces</th>
+
+<th>Stars</th>
+
+</tr>
+
+<tr><td>1</td><td>0</td><td>5</td></tr>
+<tr><td>2</td><td>1</td><td>4</td></tr>
+<tr><td>3</td><td>2</td><td>3</td></tr>
+<tr><td>4</td><td>3</td><td>2</td></tr>
+<tr><td>5</td><td>4</td><td>1</td></tr>
+
+</table>
+
+<h3>C Code</h3>
+
+<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+
+    for(int i=1;i&lt;=n;i++)
+    {
+
+        for(int j=1;j&lt;=i-1;j++)
+        {
+            printf(" ");
+        }
+
+        for(int j=1;j&lt;=n-i+1;j++)
+        {
+            printf("*");
+        }
+
+        printf("\n");
+
+    }
+
+    return 0;
+}
+</pre>
+
+</div>
+
+</body>
+</html>
